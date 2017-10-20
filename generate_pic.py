@@ -28,13 +28,13 @@ def grab_random_ints(num):
 	}
 
 	r = requests.get(RANDOM_ORG_URL, params=params)
-	print(r.status_code)
 	#Makes sure response is 200
 	if r.status_code != 200:
 		print(str(r.status_code) + " Error")
 		exit()
 	else:
-		print(r.text.split())
+		parsed_data = [int(x) for x in r.text.split()]
+		return parsed_data
 
 def main():
 	grab_random_ints(10)
