@@ -33,8 +33,7 @@ def grab_random_ints(num):
 		print(str(r.status_code) + " Error")
 		exit()
 	else:
-		parsed_data = [int(x) for x in r.text.split()]
-		return parsed_data
+		return [int(x) for x in r.text.split()]
 
 #Compiles list of RGB Pixels, taking note of the 10000 random number limit
 def list_pixels():
@@ -46,10 +45,9 @@ def list_pixels():
 	while RGB_PIXELS > 0:
 		if (RGB_PIXELS > 10000):
 			returned_pixels.extend(grab_random_ints(10000))
-			RGB_PIXELS -= 10000
 		else:
 			returned_pixels.extend(grab_random_ints(RGB_PIXELS))
-			RGB_PIXELS -= 10000
+		RGB_PIXELS -= 10000
 
 	#print len(returned_pixels)
 	return returned_pixels
