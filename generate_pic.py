@@ -40,7 +40,7 @@ def grab_random_ints(num):
 def list_pixels():
 	returned_pixels = []
 	#Total pixels x 3 (Red, Green, and Blue)
-	RGB_PIXELS = 5 #test purposes
+	RGB_PIXELS = TOTAL_PIXELS * 3
 		
 	#Note that the limit is 10000 random numbers
 	while RGB_PIXELS > 0:
@@ -54,8 +54,15 @@ def list_pixels():
 	#print len(returned_pixels)
 	return returned_pixels
 
+def create_image(random_pixels):
+	img = Image.new( 'RGB', (128,128)) # new image
+	pixels = img.load() # creates the pixel map
+	img.save("results.bmp")
+	print("fin")
+
 def main():
 	random_pixels = list_pixels()
+	create_image(random_pixels)
 
 #execute
 main()
