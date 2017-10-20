@@ -56,7 +56,8 @@ def list_pixels():
 
 def create_image(random_pixels):
 	img = Image.new( 'RGB', (128,128)) # new image
-	pixels = img.load() # creates the pixel map
+	RGB_CONFIG = np.array(random_pixels).reshape((IMG_ROW * IMG_COL, 3))
+	img.putdata([tuple(pixel) for pixel in RGB_CONFIG])
 	img.save("results.bmp")
 	print("fin")
 
