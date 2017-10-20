@@ -36,8 +36,17 @@ def grab_random_ints(num):
 		parsed_data = [int(x) for x in r.text.split()]
 		return parsed_data
 
+#Compiles list of RGB Pixels, taking note of the 10000 random number limit
+def list_pixels():
+	returned_pixels = []
+	#Total pixels x 3 (Red, Green, and Blue)
+	RGB_PIXELS = 5 #test purposes
+	returned_pixels.extend(grab_random_ints(RGB_PIXELS))	
+	print len(returned_pixels)
+	return returned_pixels
+
 def main():
-	grab_random_ints(10)
+	random_pixels = list_pixels()
 
 #execute
 main()
