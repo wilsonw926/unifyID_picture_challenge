@@ -41,8 +41,17 @@ def list_pixels():
 	returned_pixels = []
 	#Total pixels x 3 (Red, Green, and Blue)
 	RGB_PIXELS = 5 #test purposes
-	returned_pixels.extend(grab_random_ints(RGB_PIXELS))	
-	print len(returned_pixels)
+		
+	#Note that the limit is 10000 random numbers
+	while RGB_PIXELS > 0:
+		if (RGB_PIXELS > 10000):
+			returned_pixels.extend(grab_random_ints(10000))
+			RGB_PIXELS -= 10000
+		else:
+			returned_pixels.extend(grab_random_ints(RGB_PIXELS))
+			RGB_PIXELS -= 10000
+
+	#print len(returned_pixels)
 	return returned_pixels
 
 def main():
